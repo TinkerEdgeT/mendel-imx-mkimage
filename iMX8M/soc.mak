@@ -14,10 +14,10 @@ SERVER=http://yb2.am.freescale.net
 DIR = build-output/Linux_IMX_4.9_morty_trunk_next_mx8/$(N)/common_bsp
 FW_DIR = imx-boot/imx-boot-tools/imx8mq
 
-rootdir = ../../../../..
+rootdir = ../../..
 ifeq ($(TARGET_PRODUCT), iot_imx8m_phanbell)
 device_name = phanbell
-vendor_binary = $(rootdir)/vendor/bsp/freescale/imx8m/$(device_name)/u-boot
+vendor_binary = $(rootdir)/imx-firmware/imx8m
 uboot_out = $(rootdir)/out/target/product/imx8m_$(device_name)/obj/UBOOT_OBJ
 else ifeq ($(TARGET_PRODUCT), iot_imx8m_ref)
 vendor_binary = $(rootdir)/vendor/bsp/freescale/imx8m/phanbell/u-boot
