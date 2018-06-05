@@ -1,4 +1,5 @@
 #Copyright 2018 NXP
+SHELL := /bin/bash
 
 OUTIMG = flash.bin
 DCD_CFG_SRC = imx8mq_dcd.cfg
