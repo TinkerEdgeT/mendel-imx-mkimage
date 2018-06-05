@@ -32,7 +32,7 @@ BL31 = $(vendor_binary)/bl31.bin
 BL33 = $(uboot_out)/u-boot-nodtb.bin
 u_boot_spl = $(uboot_out)/spl/u-boot-spl.bin
 mkimage_uboot = $(uboot_out)/tools/mkimage_uboot
-fsl_imx8mq_evk = $(uboot_out)/arch/arm/dts/fsl-imx8mq-evk.dtb
+fsl_dtb = $(uboot_out)/arch/arm/dts/fsl-imx8mq-$(device_name).dtb
 signed_hdmi_imx8m = $(vendor_binary)/signed_hdmi_imx8m.bin
 lpddr4_pmu_train_1d_dmem = $(vendor_binary)/lpddr4_pmu_train_1d_dmem.bin
 lpddr4_pmu_train_1d_imem = $(vendor_binary)/lpddr4_pmu_train_1d_imem.bin
@@ -81,7 +81,7 @@ u-boot-atf-tee.bin: u-boot.bin $(BL31) tee.bin
 clean:
 	@rm -f $(DCD_CFG) .imx8mq_dcd.cfg.cfgtmp.d u-boot-atf.bin u-boot-atf-tee.bin u-boot-spl-ddr.bin u-boot.itb u-boot.its u-boot-ddr3l.itb u-boot-ddr3l.its u-boot-spl-ddr3l.bin u-boot-ddr4.itb u-boot-ddr4.its u-boot-spl-ddr4.bin $(OUTIMG)
 
-dtbs = $(fsl_imx8mq_evk)
+dtbs = $(fsl_dtb)
 u-boot.itb: $(dtbs)
 	source mkimage_fit_atf.sh $(BL31) $(BL33) $(dtbs) > u-boot.its
 	./$(mkimage_uboot) -E -p 0x3000 -f u-boot.its u-boot.itb
